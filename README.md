@@ -1,7 +1,7 @@
 Pax Keycloak
 ============
 
-Pa Keycloak aims at providing support for Keycloak in OSGi.
+Pax Keycloak aims at providing support for [Keycloak](http://www.keycloak.org) in [Apache Karaf](https://karaf.apache.org).
 
 ## Build
 
