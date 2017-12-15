@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.5.0" name="pax-keycloak-${dependency.keycloak.version}">
+
+
+    <!--
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+     -->
+
+    <!-- Keycloak core adapter jars -->
+    <feature name="pax-keycloak-adapter-core" version="${dependency.keycloak.version}" hidden="true">
+        <details>The keycloak adapter core stuff</details>
+        <bundle dependency="true">mvn:org.apache.httpcomponents/httpclient-osgi/${dependency.http.client.version}</bundle>
+        <bundle dependency="true">mvn:org.apache.httpcomponents/httpcore-osgi/${dependency.http.core.version}</bundle>
+        <bundle dependency="true">mvn:org.bouncycastle/bcprov-jdk15on/${dependency.bouncycastle.version}</bundle>
+        <bundle dependency="true">mvn:org.bouncycastle/bcpkix-jdk15on/${dependency.bouncycastle.version}</bundle>
+        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/${dependency.jackson.version}</bundle>
+        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/${dependency.jackson.version}</bundle>
+        <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/${dependency.jackson.version}</bundle>
+        <bundle dependency="true">mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/${dependency.jackson.version}</bundle>
+        <bundle dependency="true">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/${dependency.jackson.version}</bundle>
+        <bundle dependency="true">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/${dependency.jackson.version}</bundle>
+        <bundle>mvn:org.ops4j.pax.keycloak/pax-keycloak-core/${project.version}</bundle>
+    </feature>
+
+    <!-- Keycloak adapter for PaxWeb jetty provider -->
+    <feature name="pax-keycloak-http-jetty" version="${dependency.keycloak.version}">
+        <details>The keycloak web adapter for jetty</details>
+        <feature>pax-keycloak-adapter-core</feature>
+        <feature>pax-http-jetty</feature>
+        <bundle>mvn:org.ops4j.pax.keycloak/pax-keycloak-jetty/${project.version}</bundle>
+    </feature>
+
+    <!-- Keycloak adapter for PaxWeb undertow provider -->
+    <feature name="pax-keycloak-http-undertow" version="${dependency.keycloak.version}">
+        <details>The keycloak web adapter for undertow</details>
+        <feature>pax-keycloak-adapter-core</feature>
+        <feature>pax-http-undertow</feature>
+        <bundle>mvn:org.ops4j.pax.keycloak/pax-keycloak-undertow/${project.version}</bundle>
+    </feature>
+
+    <!-- Keycloak JAAS integration -->
+    <feature name="pax-keycloak-jaas" version="${dependency.keycloak.version}">
+        <details>The keycloak JAAS configuration</details>
+        <config name="org.ops4j.pax.keycloak.jaas">
+            jaasBearerKeycloakConfigFile = \${karaf.etc}/keycloak-bearer.json
+            jaasBearerRolePrincipalClass = org.apache.karaf.jaas.boot.principal.RolePrincipal
+
+            jaasDirectAccessKeycloakConfigFile = \${karaf.etc}/keycloak-direct-access.json
+            jaasDirectAccessRolePrincipalClass = org.apache.karaf.jaas.boot.principal.RolePrincipal
+
+            audit.eventadmin.enabled = true
+            audit.eventadmin.topic = org/apache/karaf/login
+        </config>
+        <feature>pax-keycloak-adapter-core</feature>
+        <feature>jaas</feature>
+        <bundle>mvn:org.ops4j.pax.keycloak/pax-keycloak-jaas/${project.version}</bundle>
+        <conditional>
+            <condition>hawtio-core</condition>
+            <bundle start-level="20">mvn:org.ops4j.pax.keycloak/pax-keycloak-hawtio/${project.version}</bundle>
+        </conditional>
+    </feature>
+
+    <!-- Keycloak installation -->
+    <feature name="pax-keycloak" version="${dependency.keycloak.version}">
+        <details>The keycloak adapter core stuff</details>
+        <feature>pax-keycloak-jaas</feature>
+    </feature>
+
+</features>
