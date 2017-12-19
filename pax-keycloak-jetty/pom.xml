@@ -39,14 +39,17 @@
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-jetty-adapter-spi</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-jetty-core</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-jetty93-adapter</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
