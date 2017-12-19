@@ -50,6 +50,14 @@
         <bundle>mvn:org.ops4j.pax.keycloak/pax-keycloak-undertow/${project.version}</bundle>
     </feature>
 
+    <!-- Keycloak adapter for PaxWeb tomcat provider -->
+    <feature name="pax-keycloak-http-tomcat" version="${dependency.keycloak.version}">
+        <details>The keycloak web adapter for tomcat</details>
+        <feature>pax-keycloak-adapter-core</feature>
+        <feature>pax-http-tomcat</feature>
+        <bundle>mvn:org.ops4j.pax.keycloak/pax-keycloak-tomcat/${project.version}</bundle>
+    </feature>
+
     <!-- Keycloak JAAS integration -->
     <feature name="pax-keycloak-jaas" version="${dependency.keycloak.version}">
         <details>The keycloak JAAS configuration</details>

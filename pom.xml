@@ -44,6 +44,7 @@
         <dependency.hawtio.version>2.0-M3</dependency.hawtio.version>
         <dependency.http.client.version>4.5.4</dependency.http.client.version>
         <dependency.http.core.version>4.4.8</dependency.http.core.version>
+        <dependency.tipi.tomcat.version>8.5.20.1</dependency.tipi.tomcat.version>
 
     </properties>
 
@@ -140,6 +141,26 @@
                 <version>${dependency.keycloak.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.keycloak</groupId>
+                <artifactId>keycloak-tomcat-adapter-spi</artifactId>
+                <version>${dependency.keycloak.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.keycloak</groupId>
+                <artifactId>keycloak-tomcat-core-adapter</artifactId>
+                <version>${dependency.keycloak.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.keycloak</groupId>
+                <artifactId>keycloak-tomcat8-adapter</artifactId>
+                <version>${dependency.keycloak.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ops4j.pax.tipi</groupId>
+                <artifactId>org.ops4j.pax.tipi.tomcat-embed-core</artifactId>
+                <version>${dependency.tipi.tomcat.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.apache.karaf.jaas</groupId>
                 <artifactId>org.apache.karaf.jaas.config</artifactId>
                 <version>${dependency.karaf.version}</version>
@@ -195,6 +216,7 @@
 
     <modules>
         <module>pax-keycloak-core</module>
+        <module>pax-keycloak-tomcat</module>
         <module>pax-keycloak-undertow</module>
         <module>pax-keycloak-jetty</module>
         <module>pax-keycloak-jaas</module>

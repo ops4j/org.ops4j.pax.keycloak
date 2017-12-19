@@ -56,7 +56,9 @@
                     </descriptors>
                     <framework>framework,aries-blueprint</framework>
                     <features>
-                        <feature>pax-keycloak*</feature>
+                        <!-- tomcat feature validates, but only on karaf > 4.2.0.M1
+                             because it requires pax-web 6.1 -->
+                        <feature>!pax-keycloak-tomcat,pax-keycloak*</feature>
                     </features>
                 </configuration>
             </plugin>
