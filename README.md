@@ -18,7 +18,7 @@ Run Build:
 
 ## Releases
 
-There is no release at this time but they willbe found in [Maven Central](https://repo1.maven.org/maven2/org/ops4j/pax/keycloak).
+The latest release is 0.1.0 and can be found in [Maven Central](https://repo1.maven.org/maven2/org/ops4j/pax/keycloak).
 
 ## Karaf Deployment
 
