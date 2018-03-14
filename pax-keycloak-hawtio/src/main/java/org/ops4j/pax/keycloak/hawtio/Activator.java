@@ -89,11 +89,11 @@ public class Activator implements BundleActivator {
         }
     }
 
-    private boolean setIfNot(Properties props, String key, String value, String litteral, String comment) {
+    private boolean setIfNot(Properties props, String key, String value, String literal, String comment) {
         if (System.getProperty(key) == null) {
             props.put(key,
                       comment != null ? Collections.singletonList(comment) : Collections.emptyList(),
-                      Collections.singletonList(litteral != null ? litteral : value));
+                      Collections.singletonList(literal != null ? literal : value));
             System.setProperty(key, value);
             return true;
         }
