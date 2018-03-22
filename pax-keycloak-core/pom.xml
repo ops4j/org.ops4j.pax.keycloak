@@ -97,7 +97,8 @@
                             org.keycloak.*;version=${dependency.keycloak.version}
                         </Export-Package>
                         <Private-Package>
-                            org.keycloak.*
+                            org.keycloak.*,
+                            META-INF.services;-split-package:=first
                         </Private-Package>
                     </instructions>
                 </configuration>
