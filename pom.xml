@@ -42,7 +42,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
 
-        <dependency.karaf.version>4.2.0.M1</dependency.karaf.version>
+        <dependency.karaf.version>4.1.5</dependency.karaf.version>
         <dependency.keycloak.version>3.4.1.Final</dependency.keycloak.version>
         <dependency.bouncycastle.version>1.56</dependency.bouncycastle.version>
         <dependency.jackson.version>2.7.0</dependency.jackson.version>
