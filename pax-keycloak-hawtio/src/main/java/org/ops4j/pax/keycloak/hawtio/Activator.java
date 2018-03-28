@@ -47,7 +47,7 @@ public class Activator implements BundleActivator {
 
             boolean modified = false;
             modified |= setIfNot(props, "hawtio.keycloakEnabled", "true", null, "\n# Hawtio / Keycloak integration");
-            modified |= setIfNot(props, "hawtio.roles", "admin,user", null, null);
+            modified |= setIfNot(props, "hawtio.roles", "admin,manager,viewer", null, null);
             modified |= setIfNot(props, "hawtio.realm", "karaf", null, null);
             modified |= setIfNot(props, "hawtio.keycloakClientConfig", "file://" + etc + "/keycloak-hawtio.json", "file://${karaf.etc}/keycloak-hawtio.json", null);
             modified |= setIfNot(props, "hawtio.rolePrincipalClasses", "org.keycloak.adapters.jaas.RolePrincipal,org.apache.karaf.jaas.boot.principal.RolePrincipal", null, null);
