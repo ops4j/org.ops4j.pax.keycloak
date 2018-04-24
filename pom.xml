@@ -50,6 +50,7 @@
         <dependency.http.client.version>4.5.4</dependency.http.client.version>
         <dependency.http.core.version>4.4.8</dependency.http.core.version>
         <dependency.tipi.tomcat.version>8.5.20.1</dependency.tipi.tomcat.version>
+        <dependency.paxweb.version>7.1.0-SNAPSHOT</dependency.paxweb.version>
 
     </properties>
 
@@ -80,6 +81,16 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.ops4j.pax.web</groupId>
+                <artifactId>pax-web-api</artifactId>
+                <version>${dependency.paxweb.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ops4j.pax.web</groupId>
+                <artifactId>pax-web-jetty</artifactId>
+                <version>${dependency.paxweb.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.ops4j.pax.keycloak</groupId>
                 <artifactId>pax-keycloak-core</artifactId>
@@ -132,7 +143,7 @@
             </dependency>
             <dependency>
                 <groupId>org.keycloak</groupId>
-                <artifactId>keycloak-jetty93-adapter</artifactId>
+                <artifactId>keycloak-jetty94-adapter</artifactId>
                 <version>${dependency.keycloak.version}</version>
             </dependency>
             <dependency>

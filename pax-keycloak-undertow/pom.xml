@@ -31,12 +31,22 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.ops4j.pax.web</groupId>
+            <artifactId>pax-web-api</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.ops4j.pax.keycloak</groupId>
             <artifactId>pax-keycloak-core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-undertow-adapter</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.undertow</groupId>
+            <artifactId>undertow-servlet</artifactId>
+            <version>1.4.23.Final</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -65,6 +75,9 @@
                         <Private-Package>
                             org.keycloak.adapters.undertow.*
                         </Private-Package>
+                        <Fragment-Host>
+                            org.ops4j.pax.web.pax-web-undertow
+                        </Fragment-Host>
                     </instructions>
                 </configuration>
             </plugin>

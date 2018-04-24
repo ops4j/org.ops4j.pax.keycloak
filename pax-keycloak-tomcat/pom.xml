@@ -31,6 +31,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.ops4j.pax.web</groupId>
+            <artifactId>pax-web-api</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.ops4j.pax.keycloak</groupId>
             <artifactId>pax-keycloak-core</artifactId>
         </dependency>
@@ -75,6 +79,9 @@
                         <Private-Package>
                             org.keycloak.adapters.tomcat.*
                         </Private-Package>
+                        <Fragment-Host>
+                            org.ops4j.pax.web.pax-web-tomcat
+                        </Fragment-Host>
                     </instructions>
                 </configuration>
             </plugin>
