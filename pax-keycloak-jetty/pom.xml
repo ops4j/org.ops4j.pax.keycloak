@@ -31,6 +31,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.ops4j.pax.web</groupId>
+            <artifactId>pax-web-spi</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.ops4j.pax.keycloak</groupId>
             <artifactId>pax-keycloak-core</artifactId>
         </dependency>
@@ -46,8 +50,18 @@
         </dependency>
         <dependency>
             <groupId>org.keycloak</groupId>
-            <artifactId>keycloak-jetty93-adapter</artifactId>
+            <artifactId>keycloak-jetty94-adapter</artifactId>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.ops4j.pax.web</groupId>
+            <artifactId>pax-web-jetty</artifactId>
+            <version>7.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-security</artifactId>
+            <version>9.3.22.v20171030</version>
         </dependency>
     </dependencies>
 
@@ -61,7 +75,7 @@
                         <Import-Package>
                             !org.keycloak.adapters.jetty,
                             org.keycloak.*,
-                            org.eclipse.jetty.*;version="[9.3,9.4)",
+                            org.eclipse.jetty.*;version="[9.4,9.5)",
                             *,
                         </Import-Package>
                         <Export-Package>
@@ -70,6 +84,9 @@
                         <Private-Package>
                             org.keycloak.adapters.jetty.*
                         </Private-Package>
+                        <Fragment-Host>
+                            org.ops4j.pax.web.pax-web-jetty
+                        </Fragment-Host>
                     </instructions>
                 </configuration>
             </plugin>

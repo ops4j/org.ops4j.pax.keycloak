@@ -81,6 +81,11 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.ops4j.pax.web</groupId>
+                <artifactId>pax-web-spi</artifactId>
+                <version>7.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
                 <groupId>org.ops4j.pax.keycloak</groupId>
                 <artifactId>pax-keycloak-core</artifactId>
                 <version>${project.version}</version>
@@ -132,7 +137,7 @@
             </dependency>
             <dependency>
                 <groupId>org.keycloak</groupId>
-                <artifactId>keycloak-jetty93-adapter</artifactId>
+                <artifactId>keycloak-jetty94-adapter</artifactId>
                 <version>${dependency.keycloak.version}</version>
             </dependency>
             <dependency>
